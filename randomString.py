@@ -1,4 +1,5 @@
 # randomString.py
+
 # Creates a random string.  User can set length and types of characters
 # to be used.  Great for generating passwords, keys, etc.
 
@@ -41,5 +42,35 @@ def randomString(characters = 123, length = 8):
         for i in range(length))
 
 
+def loremIpsumSentence(
+        stringType = 1, minString = 2, maxString = 10, minSentence = 5,
+        maxSentence = 20):
+    words = []
+    for i in range(minSentence, maxSentence):
+        words.append(randomString(stringType, 
+        random.randint(minString, maxString)))
+    sentence = " ".join(words) + ".  "
+    return sentence
+
+
+    # x = (randomString(str(stringType), random.randint(minString, maxString)) + " ") for i in random.randint(minSentence, maxSentence) + ".  "
+
+
 # Demonstrate randomString()
-print(randomString(23, 20))
+print("20 random letters, numbers, and symbols:")
+print(randomString(123, 20))
+print("")
+print("")
+
+print("Random product key (uppercase and numbers).  Five sets of " + \
+    "six characters separated by dashes:")
+productKey = []
+for i in range(5):
+    productKey.append(randomString(24, 6))
+print("-".join(productKey))
+print("")
+print("")
+
+
+print("Custom lorem ipsum (can be used for other languages):")
+print(loremIpsumSentence())
