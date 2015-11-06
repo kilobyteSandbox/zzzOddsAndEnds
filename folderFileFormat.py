@@ -58,10 +58,6 @@ def chapterFormat(text, separator = "\n", chapterMax = 30,
                 format = False
                 break
         if format == True:
-            print(chapter)
-            print(intToStrPad(chapter))
-            print(section)
-            print(intToStrPad(section))
             chapterStr = intToStrPad(chapter)
             sectionStr = intToStrPad(section)
             textList[counter] = chapterStr + "-" + sectionStr + " " +\
