@@ -33,7 +33,7 @@ def intToStrPad(number):
     if number < 10:
         return "0" + str(number)
     else:
-        return + str(number)
+        return str(number)
 
 
 def chapterFormat(text, separator = "\n", chapterMax = 30, 
@@ -56,7 +56,12 @@ def chapterFormat(text, separator = "\n", chapterMax = 30,
                 chapter = countdown
                 section = 1
                 format = False
+                break
         if format == True:
+            print(chapter)
+            print(intToStrPad(chapter))
+            print(section)
+            print(intToStrPad(section))
             chapterStr = intToStrPad(chapter)
             sectionStr = intToStrPad(section)
             textList[counter] = chapterStr + "-" + sectionStr + " " +\
