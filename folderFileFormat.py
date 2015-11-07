@@ -35,6 +35,30 @@ def list_maker(text, separator = "\n"):
     return text.split(separator)
 
 
+
+# Deletes every ___ line every ___ lines (removes garbage lines).
+# Example: Deletes every 2nd line every 3 lines would be:
+# line = 2, cycle = 3
+# 1, *, 3, 4, *, 6, 7, *, 9, ...
+def garbage_line_removal(text, line = "", cycle = ""):
+    # Default to disabled and check for divide by zero
+    if line == cycle == "" or cycle == 0:
+        return text
+    newText = []
+    # Check for lines to remove and don't add them to newText if it's a
+    # match.  Otherwise, add to newText.
+    # Example: Remove the 3rd line every 5 lines.
+    # 1, 2, *, 4, 5, 6, 7, *, 9, 10, 11, 12, *, 14, 15, ...
+    # i = 7 is line 8, so add 1 to even it up.  Subtract line and divide
+    # by cycle to see if it's the (line)th line every (cycle) lines.
+    for i in range(len(text)):
+        if (i + 1 - line) % cycle != 0:
+            newText.append(text[i])
+    return newText
+
+
+
+
 # Pads single digit numbers with a 0 (3 becomes 03, 11 stays 11).  
 def int_to_str_pad(number):
     if number < 10:
@@ -45,10 +69,12 @@ def int_to_str_pad(number):
 
 # Adds "xx-yy " format before each file name in the list.  Chapters are
 # not renamed, but numbers are taken from chapter names.
-def chapter_format(text, separator = "\n", chapterMax = 30, 
-                  chapterMin = 0):
+# Garba
+def chapter_format(text, garbageLine = "", garbageCycle = "", 
+                  separator = "\n", chapterMin = 0, chapterMax = 30):
     # Make a list from copied text.
     textList = list_maker(text, separator)
+    textList = garbage_line_removal(textList, garbageLine, garbageCycle)
     # Set counter for chapter and section.
     chapter = 0
     section = 1
@@ -87,5 +113,5 @@ def chapter_format(text, separator = "\n", chapterMax = 30,
 
 
 # Demo
-for i in chapter_format(text):
+for i in chapter_format(text, 2, 2):
     print(i)
