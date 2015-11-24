@@ -26,15 +26,19 @@ password_regex = re.compile(r"""(
     )""", re.VERBOSE)
 
 
+# Check the password and return a message based on the results.
 def password_checker(password):
+    # If there is a match, it passes and we give pass verification.
     if password_regex.search(password) != None:
         print("This password is strong.  Like an ox.  An ox that " +\
             "has the strength of two oxen.")
+    # If there isn't a match, it fails and we give a fail message.
     else:
         print("This password is weak, and disappoints your parents.")
 
 
 # Demonstrate
+# ===========
 print("""Password requirements:
 - 8 to 20 characters
 - At least one uppercase letter
@@ -43,6 +47,8 @@ print("""Password requirements:
 
 """)
 
+# Create an endless loop that asks for and verifies passwords.  Break
+# out of the loop if the user enters nothing.
 while True:
     print("Enter a password to test (or nothing to exit):")
     password = input()
