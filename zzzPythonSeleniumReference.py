@@ -18,25 +18,27 @@
 # ==============
 
 # Use example:
-# elem = driver.find_element_by_xpath("//*[@id='content']/div/ul[1]/li[3]/div/a/h2")
-# elem.click()
+# driver.find_element_by_xpath(".//*[@id='Password']").send_keys("Aardvark")
+
+# def login_field(self):
+#	return self.wait.until(EC.element_to_be_clickable((By.NAME, 'Login')))
 
 
 # XPath
-elem = driver.find_element_by_xpath()
+driver.find_element_by_xpath()
 
 
 # Click
-elem.click()
+.click()
 
 
 # Keys
-elem.send_keys("StringText")
-elem.send_keys(Keys.ARROW_DOWN)
+.send_keys("StringText")
+.send_keys(Keys.ARROW_DOWN)
 
 
 # Clear
-elem.clear()
+.clear()
 
 
 # Wait (in seconds)
@@ -60,6 +62,22 @@ assert "No results found." not in driver.page_source
 
 
 #Verify (does not stop test if fails)
+
+
+
+
+
+# List of find_
+# =============
+
+find_element_by_id
+find_element_by_name
+find_element_by_xpath
+find_element_by_link_text
+find_element_by_partial_link_text
+find_element_by_tag_name
+find_element_by_class_name
+find_element_by_css_selector
 
 
 
