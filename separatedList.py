@@ -1,12 +1,16 @@
 #! python 3
 
 # separatedlist.py
-# Takes a string and adds a new line whenever the designated character is found.  Does something else
-# already do this?  Probably.  Better?  Almost certainly.
+# ================
+# Takes a string and adds a new line whenever the designated character is found.
+# Does something else already do this?  Probably.  Better?  Almost certainly.
+
 
 # Example usage:
 # "Apple,banana,carrot"
+
 # becomes:
+
 # "Apple
 # banana
 # carrot"
