@@ -24,10 +24,13 @@ def separated_list(seperator):
 	copied_list = pyperclip.paste()
 	new_list = ""
 	for i in copied_list:
+		# If we run into the seperator character, create a new line.
 		if i == seperator:
 			new_list += "\n"
+		# If we run into a new line, delete that new line.
 		elif i == "\n":
 			new_list += ""
+		# Otherwise, copy the old list to the new list.
 		else:
 			new_list += i
 	return new_list
